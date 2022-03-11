@@ -19,7 +19,7 @@ function App() {
         id: 2,
         text: 'learn react Native',
         day : '10 04 2022',
-        priority: true
+        priority: false
     },
     {
         id: 3,
@@ -40,10 +40,27 @@ function App() {
     setTask(tasks.filter((task)=>task.id != id))
   }
 
+  //change priority
+  const changePriority = (id) => {
+    setTask(
+      tasks.map((task)=>(
+        task.id == id 
+        ? {...task, priority : !task.priority} : task
+      ))
+    )
+  }
+
   return (
     <div className="container">
       <Header />
-      <Tasks tasks={tasks} onDelete={deleteTask} />
+      {
+        tasks.length > 0 ? 
+        <Tasks tasks={tasks} 
+               onDelete={deleteTask}
+               OnUpdate={changePriority} />
+        : 'No Tasks to Show'
+      }
+      
     </div>
   );
 }
