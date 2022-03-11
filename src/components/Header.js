@@ -6,7 +6,7 @@ export const Header = ({title}) => {
   return (
     <header className='header'>
         <h1>{title}</h1>
-        <Button text='Close' color='red' />
+        <Button text='Add' color='green' />
     </header>
   )
 }
