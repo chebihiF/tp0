@@ -9,6 +9,8 @@ import { AddTask } from './components/AddTask';
 
 function App() {
 
+  const [showForm,setShowForm] = useState(false)
+
   const [tasks,setTask] = useState([
     {
         id: 1,
@@ -36,7 +38,6 @@ function App() {
     }
   ])
 
-
   //add Task
   const addTask = (task) =>{
     let id = tasks.length+1
@@ -59,10 +60,11 @@ function App() {
     )
   }
 
+  
   return (
     <div className="container">
-      <Header />
-      <AddTask onAdd={addTask} />
+      <Header onShowForm={()=>setShowForm(!showForm)} />
+      {showForm && <AddTask onAdd={addTask} />}
       {
         tasks.length > 0 ? 
         <Tasks tasks={tasks} 

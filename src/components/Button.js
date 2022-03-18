@@ -1,13 +1,8 @@
 import React from 'react'
 
-export const Button = ({text,color}) => {
-
-    const testClick = () => {
-        alert("test")
-    }
-
+export const Button = ({text,color,onShow}) => {
   return (
     <button style={{backgroundColor : color}} 
-    className='btn' onClick={testClick}>{text}</button>
+    className='btn' onClick={onShow}>{text}</button>
   )
 }
