@@ -1,14 +1,19 @@
 import React, { useState } from 'react'
 
-export const AddTask = () => {
+export const AddTask = ({onAdd}) => {
 
     const [text,setText] = useState('')
     const [day,setDay] = useState('')
     const [priority,setPriority] = useState(false)
     
 
+    const addTask = (e) =>{
+      e.preventDefault();
+      onAdd({text,day,priority})
+    }
+
   return (
-    <form className='add-form'>
+    <form className='add-form' onSubmit={addTask}>
         <div className='form-control'>
             <label>Text</label>
             <input type='text' placeholder='Add Task'
