@@ -63,7 +63,10 @@ function App() {
   
   return (
     <div className="container">
-      <Header onShowForm={()=>setShowForm(!showForm)} />
+      <Header 
+        onShowForm={()=>setShowForm(!showForm)} 
+        onShowInfo={showForm}
+        />
       {showForm && <AddTask onAdd={addTask} />}
       {
         tasks.length > 0 ? 
