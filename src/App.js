@@ -36,6 +36,14 @@ function App() {
     }
   ])
 
+
+  //add Task
+  const addTask = (task) =>{
+    let id = tasks.length+1
+    let newTask = {id, ...task}
+    setTask([...tasks, newTask])
+  }
+
   //delete Task
   const deleteTask = (id) => {
     setTask(tasks.filter((task)=>task.id != id))
@@ -54,7 +62,7 @@ function App() {
   return (
     <div className="container">
       <Header />
-      <AddTask />
+      <AddTask onAdd={addTask} />
       {
         tasks.length > 0 ? 
         <Tasks tasks={tasks} 
