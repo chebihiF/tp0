@@ -11,6 +11,12 @@
       "text": "learn react Native",
       "day": "10 04 2022",
       "priority": true
+    },
+    {
+      "text": "learn angular",
+      "day": "11/03/2022",
+      "priority": false,
+      "id": 3
     }
   ]
 }
